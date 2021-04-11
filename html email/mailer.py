@@ -1,11 +1,12 @@
 import csv
+import os
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-sender_email = ""
+sender_email = str(os.environ.get('iedc_email'))
 receiver_email = "adithyaanilkumar1@gmail.com"
-password = ""
+password = str(os.environ.get('iedc_pass'))
 
 message = MIMEMultipart("alternative")
 message["Subject"] = "Invitation for talk"
