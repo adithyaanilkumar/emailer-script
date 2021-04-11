@@ -8,7 +8,7 @@ receiver_email = "adithyaanilkumar1@gmail.com"
 password = ""
 
 message = MIMEMultipart("alternative")
-message["Subject"] = "multipart test"
+message["Subject"] = "Invitation for talk"
 message["From"] = sender_email
 message["To"] = receiver_email
 
@@ -94,14 +94,14 @@ html = """\
 
         @media screen and (max-width: 500px) {
             .name {
-                font-size: 3.5vw;
+                font-size: 2vw;
             }
 
             .details {
-                font-size: 2.25vw;
+                font-size: 2vw;
             }
             .email{
-                font-size: 2vw;
+                font-size: 1.5vw;
             }
         }
     </style>
