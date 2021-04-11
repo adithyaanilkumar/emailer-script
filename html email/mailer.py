@@ -37,9 +37,20 @@ html = """\
         .header-container{
             margin-bottom: 20px;
         }
+        .header-container_mob{
+            display: none;
+        }
 
-        .footer-container {
+        .footer-container_web {
             display: flex;
+            width: 100%;
+            flex-direction: row;
+            position: relative;
+            bottom: 0;
+            margin-top: 100px;
+        }
+        .footer-container_mob {
+            display: none;
             width: 100%;
             flex-direction: row;
             position: relative;
@@ -107,13 +118,29 @@ html = """\
             .email{
                 font-size: 1.5vw;
             }
+            .header-container{
+                display: none;
+            }
+            .header-container_mob{
+                display: flex;
+                margin-bottom: 20px;
+            }
+            .footer-container_web {
+                display: none;
+            }
+            .footer-container_mob {
+                display: flex;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="header-container">
-        <img width="100%" src='https://user-images.githubusercontent.com/53343483/114293870-79e9f300-9ab7-11eb-9b13-f606d1c8a420.png'/>
+        <img width="100%" src='https://user-images.githubusercontent.com/11157848/114314703-60799300-9b19-11eb-8c34-4e7be6fc41f8.png'/>
+    </div>
+    <div class="header-container_mob">
+        <img width="100%" src='https://user-images.githubusercontent.com/11157848/114314702-5eafcf80-9b19-11eb-9eea-eb739af94488.png'/>
     </div>
     <div class="content-container">
         <!--Content goes here-->
@@ -131,8 +158,11 @@ In velit justo, tincidunt in velit a, volutpat ultricies lorem. Praesent et fauc
 
 </p>
     </div>
-    <div class="footer-container">
-        <img class = "footer-img"  src='https://user-images.githubusercontent.com/11157848/114299521-5c2d8580-9ad9-11eb-8155-e13be0780806.png'/>
+    <div class="footer-container_web">
+        <img class = "footer-img"  src='https://user-images.githubusercontent.com/11157848/114314697-58215800-9b19-11eb-80fd-ae320998ccd3.png'/>
+    </div>
+    <div class="footer-container_mob">
+        <img class = "footer-img"  src='https://user-images.githubusercontent.com/11157848/114314692-535ca400-9b19-11eb-885f-22bb69561491.png'/>
     </div>
 </body>
 
