@@ -202,7 +202,7 @@ In velit justo, tincidunt in velit a, volutpat ultricies lorem. Praesent et fauc
     </div>
 </body>
 
-</html
+</html>
 """
 
 # Turn these into plain/html MIMEText objects
