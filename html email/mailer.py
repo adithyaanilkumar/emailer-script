@@ -10,6 +10,7 @@ receiver_email = ""
 password = str(os.environ.get('iedc_pass'))
 
 message = MIMEMultipart("alternative")
+
 message["Subject"] = "Invitation for Technopreneur " #change the subject
 message["From"] = sender_email
 message["To"] = receiver_email
@@ -18,8 +19,7 @@ message["To"] = receiver_email
 text = """\
 Hi,
 How are you?
-Real Python has many great tutorials:
-www.realpython.com"""
+"""
 
 #paste the html version from the design generator website
 html = """\
@@ -360,6 +360,10 @@ html = """\
 </body>
 
 </html>
+
+
+
+
 """
 
 part1 = MIMEText(text, "plain")
