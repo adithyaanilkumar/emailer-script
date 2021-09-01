@@ -1,5 +1,8 @@
 # Setup:
 
+Turn on Less Secure apps for your google account : https://myaccount.google.com/lesssecureapps
+
+Then depending on the platform that you are using : 
 ## Windows
 
 1. go to system(control Pannel) on windows > advanced system settings > environment variable >  Add system variable(not user)
@@ -14,7 +17,7 @@ just export the variables in the command line as EXPORT iedc_email="<your gmail>
 
  EXPORT iedc_pass="<your password>"
 
-# MAILER SCRIPT: 
+# USING MAILER SCRIPT: 
 
 1. clone the repo
 2. cd into the html email folder
