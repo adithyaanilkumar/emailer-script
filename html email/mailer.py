@@ -4,366 +4,80 @@ import time
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import certifi
+ssl._create_default_https_context = ssl._create_unverified_context
 
-sender_email = str(os.environ.get('iedc_email'))
-receiver_email = ""
-password = str(os.environ.get('iedc_pass'))
+sender_email = "adithyaanilkumar@mec.ac.in"
+receiver_email = "kochifoss@gmail.om"
+password = "TWC20LI%Zm"
 
 message = MIMEMultipart("alternative")
 
-message["Subject"] = "Invitation for Technopreneur " #change the subject
+message["Subject"] = "KochiFOSS - Food Preference" #change the subject
 message["From"] = sender_email
 message["To"] = receiver_email
 
 #paste the plain text version of the content incase the html fails
 text = """\
-Hi,
-How are you?
+Greetings, Participant!
+
+
+Thank you for registering for KochiFOSS. We have some amazing talks and networking sessions planned for you. The detailed schedule and list of speakers will be released soon!
+
+All further communication regarding the event will be done through our telegram channel. Please join the same : https://t.me/+jrrzeTR9Mu02YTll
+
+It is mandatory for all participants to join this channel.
+
+In the meantime, we would like to know your food preferences for the event. Please fill out this form : https://forms.gle/td7uGs5HzKkFzpWA7  by 11:59 pm on 9th of October to let us know which palette you would prefer. 
+
+NB : For the people who have not filled the form, the default option would be Vegetarian
+
+May the FOSS be with you,
+Adithya
+Organizer 
+KochiFOSS 
+
 """
 
 #paste the html version from the design generator website
 html = """\
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<html>
 
 <head>
-  <!--[if gte mso 9]>
-<xml>
-  <o:OfficeDocumentSettings>
-    <o:AllowPNG/>
-    <o:PixelsPerInch>96</o:PixelsPerInch>
-  </o:OfficeDocumentSettings>
-</xml>
-<![endif]-->
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="x-apple-disable-message-reformatting">
-  <!--[if !mso]><!-->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!--<![endif]-->
-  <title></title>
-
-  <style type="text/css">
-    a {
-      color: #0000ee;
-      text-decoration: underline;
-    }
     
-    @media only screen and (min-width: 620px) {
-      .u-row {
-        width: 600px !important;
-      }
-      .u-row .u-col {
-        vertical-align: top;
-      }
-      .u-row .u-col-100 {
-        width: 600px !important;
-      }
-    }
-    
-    @media (max-width: 620px) {
-      .u-row-container {
-        max-width: 100% !important;
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-      }
-      .u-row .u-col {
-        min-width: 320px !important;
-        max-width: 100% !important;
-        display: block !important;
-      }
-      .u-row {
-        width: calc(100% - 40px) !important;
-      }
-      .u-col {
-        width: 100% !important;
-      }
-      .u-col>div {
-        margin: 0 auto;
-      }
-    }
-    
-    body {
-      margin: 0;
-      padding: 0;
-    }
-    
-    table,
-    tr,
-    td {
-      vertical-align: top;
-      border-collapse: collapse;
-    }
-    
-    p {
-      margin: 0;
-    }
-    
-    .ie-container table,
-    .mso-container table {
-      table-layout: fixed;
-    }
-    
-    * {
-      line-height: inherit;
-    }
-    
-    a[x-apple-data-detectors='true'] {
-      color: inherit !important;
-      text-decoration: none !important;
-    }
-  </style>
-
-
-
-  <!--[if !mso]><!-->
-  <link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet" type="text/css">
-  <!--<![endif]-->
-
 </head>
 
-<body class="clean-body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #f9f9f9">
-  <!--[if IE]><div class="ie-container"><![endif]-->
-  <!--[if mso]><div class="mso-container"><![endif]-->
-  <table style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #f9f9f9;width:100%" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr style="vertical-align: top">
-        <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #f9f9f9;"><![endif]-->
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #ffffff;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:0px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                <tr>
-                                  <td style="padding-right: 0px;padding-left: 0px;" align="center">
-
-                                    <img align="center" border="0" src="https://s3.amazonaws.com/unroll-images-production/projects%2F16252%2F1618366013756-Group+4.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 600px;"
-                                      width="600" />
-
-                                  </td>
-                                </tr>
-                              </table>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
+<body>
+    <div style="background-color:#1a1a1a">
+        <div style="background-color:#1a1a1a;max-width:800px;margin:auto;font-family:Inter,'Helvetica Neue','Segoe UI',Helvetica,sans-serif">
+          <div style="padding:30px">
+            <img src="https://ci6.googleusercontent.com/proxy/RQ8haac5nA0fsBQ6ThjDIkaCcNyjhfZ_DZEtiPINwJHpWOKvyrC7y_spmY069lgjx-VbCsPNWWIY=s0-d-e1-ft#http://194.195.119.12/uploads/logo.png" style="display:block;margin:auto;width:100px;height:auto" class="CToWUd" data-bit="iit">
           </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #003399;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #003399;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:40px 10px 10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                <tr>
-                                  <td style="padding-right: 0px;padding-left: 0px;" align="center">
-
-                                    <img align="center" border="0" src="https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 26%;max-width: 150.8px;"
-                                      width="150.8" />
-
-                                  </td>
-                                </tr>
-                              </table>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;"><strong>T H A N K S&nbsp; &nbsp;F O R&nbsp; &nbsp;S I G N I N G&nbsp; &nbsp;U P !</strong></p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:0px 10px 31px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 28px; line-height: 39.2px;"><strong><span style="line-height: 39.2px; font-size: 28px;">Verify Your E-mail Address </span></strong>
-                                  </span>
-                                </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
+          <div style="max-width:585px;background-color:#ffffff;margin:auto;padding:30px;color:#192734">
+            <p>Greetings, Participant! </p>
+    <p>Thank you for registering for KochiFOSS. We have some amazing talks and networking sessions planned for you. The detailed schedule and list of speakers will be released soon!</p>
+    <p>All further communication regarding the event will be done through our Announcement channel. Please join the same : <a href="https://t.me/+jrrzeTR9Mu02YTll">KochiFOSS Announcements group </a>    </p>
+    <p>It is mandatory for all participants to join this channel.</p>
+    <p>In the meantime, we would like to know your food preferences for the event. Please fill out <a href="https://forms.gle/td7uGs5HzKkFzpWA7">this form </a> by 11:59 pm on 9th of October to let us know which palette you would prefer.  </p>
+    <p>NB : For the people who have not filled the form within the timeline, the default option provided would be Vegetarian.</p>
+    
+    <p>Regards,<br>
+   
+    <div style="color:rgb(34,34,34)"><font color="#222222"><br></font><div><div dir="ltr"><div dir="ltr"><table cellpadding="0" cellspacing="0" style="font-family:Arial;line-height:1.15;color:rgb(0,0,0)"><tbody><tr><td style="font-family:Arial;vertical-align:top;padding-right:14px"><table cellpadding="0" cellspacing="0" style="width:50px"><tbody><tr><td style="font-family:Arial"><table cellspacing="0" cellpadding="0" style="line-height:1.15"><tbody><tr><td style="font-family:Arial;vertical-align:top;padding-right:14px"><table cellspacing="0" cellpadding="0" style="width:50px"><tbody><tr><td style="font-family:Arial"><img src="https://ci6.googleusercontent.com/proxy/S5NGxrln4SqmZH4xPJA0WADE-a2I8x4LWq-LpQJrlBPWLlXGhbag-jFxGTpuG2X-F80M-IoSe-7Tju3d26EvtMYNDlgQLWWK2F_5qy7fBjKx1Kbmy4R1IUUJADZgwA3Sf-CBbS6E_vpZpvHwBUPjLsADC0gsQD2WPyBNTO1O_4bU7zXNKQ=s0-d-e1-ft#https://d36urhup7zbd7q.cloudfront.net/aa0eb96b-5540-461a-b4ed-4ddf7cd26337/iedcmeclogo.format_png.resize_200x.jpeg" width="96" height="96" style="border-radius:10px;display:block;margin-right:0px" class="CToWUd" data-bit="iit"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td><td height="1" width="0" style="font-family:Arial;width:0px;border-right:2px solid rgb(189,189,189);height:0px;font-size:0pt">&nbsp;</td><td valign="top" style="padding-left:14px;vertical-align:top"><p dir="ltr" style="font-family:Arial;line-height:1.2;margin-top:1pt;margin-bottom:2pt"><font color="#ec1d27" size="3"><span style="white-space:pre-wrap"><b>Adithya Anilkumar</b></span></font><span style="color:rgb(32,33,36)">&nbsp;</span></p><p dir="ltr" style="font-family:Arial;line-height:1.2;margin-top:1pt;margin-bottom:2pt"><b><a href="http://iedcmec.in" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://iedcmec.in&amp;source=gmail&amp;ust=1665163344429000&amp;usg=AOvVaw186Cpls9Ydy5Eyj01nRmFh"><font color="#666666">IEDC MEC</font></a><font color="#666666"> |&nbsp;</font></b><span style="color:rgb(102,102,102)">Chief Operating Officer</span><span style="color:rgb(32,33,36)"><br></span></p><span style="color:rgb(102,102,102);font-family:Arial;font-size:13.3333px;white-space:pre-wrap">W: </span><a href="https://adithyaanilkumar.works/" style="color:rgb(236,29,39);font-family:Arial;font-size:13.3333px;white-space:pre-wrap" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://adithyaanilkumar.works/&amp;source=gmail&amp;ust=1665163344429000&amp;usg=AOvVaw1qgMxflD8S0Vo2qJB7jk4m">adithyaanilkumar.works</a><br><font style="font-family:Arial;color:rgb(96,96,96)">E&nbsp;</font><font style="font-family:Arial;color:rgb(68,68,68)">:&nbsp;<a href="mailto:adithyaanilkumar1@gmail.com" style="color:rgb(236,29,39)" target="_blank">adithyaanilkumar1@gmail.<wbr>com</a>&nbsp;</font><span style="font-family:Arial;font-size:10pt;vertical-align:baseline;white-space:pre-wrap"><font style="color:rgb(102,102,102)"> 
+</font></span><a href="https://www.linkedin.com/in/adithyaanilkumar/" style="color:rgb(17,85,204);font-family:Arial,Helvetica,sans-serif" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.linkedin.com/in/adithyaanilkumar/&amp;source=gmail&amp;ust=1665163344429000&amp;usg=AOvVaw1BvZSjOXKL5O421trsoGs9"><img height="16" src="https://ci5.googleusercontent.com/proxy/5pia1XvrK680ZfARqjGGgJnIqFNWzl2d4a5LpPkt3ySL1G4J4fRmJZDdUJdxRqd_-4AJvWiL4_aMzIMV4oXCeBxy4q7HN0bK3ildHiA9fKZElcgzQf_mRcQ7ZQ6u0m7uta_nqQvmEy1rICqw2G3Aa1VTkUXh40Mp=s0-d-e1-ft#https://user-images.githubusercontent.com/53343483/116508675-7a6bf180-a8df-11eb-93a3-18b3374058ab.png" style="display:inline-block" class="CToWUd" data-bit="iit"></a><span style="font-family:Arial,Helvetica,sans-serif;color:rgb(32,33,36)">&nbsp;</span><a href="https://www.instagram.com/adixthya" style="color:rgb(17,85,204);font-family:Arial,Helvetica,sans-serif" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.instagram.com/adixthya&amp;source=gmail&amp;ust=1665163344429000&amp;usg=AOvVaw15OF5G2Xf2gtV9Rg6Pvrs9"><img height="16" src="https://ci3.googleusercontent.com/proxy/1z2pqhHJj5vcaVL2TIUpYs6YbGApW1qOD6OMfzHUIKhu8sUU652E6xqVvazVlzrAiOWA45nYqbJzyXTQVWmq9LkaYFG3a0fxtBUrVhwn7_OJpVIr5rFn6x7GsD5u1AplaJ9Xe_1QECoBz2QxWJfI7rvzqeA7aSbu=s0-d-e1-ft#https://user-images.githubusercontent.com/53343483/116511839-adfd4a80-a8e4-11eb-9811-ed0935b90445.png" style="display:inline-block" class="CToWUd" data-bit="iit"></a><span style="font-family:Arial,Helvetica,sans-serif;color:rgb(32,33,36)">&nbsp;</span><a href="https://twitter.com/adixthya" style="color:rgb(17,85,204);font-family:Arial,Helvetica,sans-serif" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://twitter.com/adixthya&amp;source=gmail&amp;ust=1665163344429000&amp;usg=AOvVaw2toL9m9EoYC2x2HhPlaUb0"><img height="16" src="https://ci3.googleusercontent.com/proxy/4IFNNCRd1yLuvCryC8yp9CXhxyszhrQ7RurEdzeH1YeVX04Oh4MDuJkFib55NBgzPUzZCs1I4p5xNsDP9mH2sfvsyII_JWHwKhSz6GnLkAy-mWvtfa3B01rb1H9h6qT5TR5ZTIE1O9BpXD3qSWqM3IzkOZtrALt0=s0-d-e1-ft#https://user-images.githubusercontent.com/53343483/116512070-13513b80-a8e5-11eb-88b6-2451760463a9.png" class="CToWUd" data-bit="iit"></a>&nbsp;<span style="font-family:Arial,Helvetica,sans-serif;color:rgb(32,33,36)"></span><a href="https://github.com/adithyaanilkumar" style="color:rgb(17,85,204);font-family:Arial,Helvetica,sans-serif" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://github.com/adithyaanilkumar&amp;source=gmail&amp;ust=1665163344429000&amp;usg=AOvVaw181B_Lo6cu6RVrJosCuRAn"><img height="16" src="https://ci5.googleusercontent.com/proxy/dNzbe0zrdg6eHhWazr3cm8eOIdOe0VLaxmnQz0D4x74pqEp4t72mKMjpOkzX4hppOSYq19KWIUdUmo3TGhN4JsP4gUo3QFaubTVq6NjVN-rRF8bjQ8jfPZmgx_ziWcYjoaWpPfYOeCWXCn80IwuroYTdKjYj0htY=s0-d-e1-ft#https://user-images.githubusercontent.com/53343483/127747063-898e48e8-fda9-49b7-9805-af10d4a9c2c4.jpg" class="CToWUd" data-bit="iit"></a></td></tr></tbody></table><div><span style="color:rgb(153,153,153)"><br></span></div><div><span style="color:rgb(153,153,153)">The content of this email is confidential and intended for the&nbsp;recipient specified in a message only. It is strictly forbidden to share any part of this message with any third party, without the written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.</span></div></div></div></div></div>
+    
+    
           </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #ffffff;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #000000; line-height: 160%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 22px; line-height: 35.2px;">Hi, </span></p>
-                                <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 18px; line-height: 28.8px;">You're almost ready to get started. Please click on the button below to verify your email address and enjoy exclusive cleaning services with us! </span></p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div align="center">
-                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:'Cabin',sans-serif;"><tr><td style="font-family:'Cabin',sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:46px; v-text-anchor:middle; width:234px;" arcsize="8.5%" stroke="f" fillcolor="#ff6600"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Cabin',sans-serif;"><![endif]-->
-                                <a href="" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:'Cabin',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #ff6600; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
-                                  <span style="display:block;padding:14px 44px 13px;line-height:120%;"><span style="font-size: 16px; line-height: 19.2px;"><strong><span style="line-height: 19.2px; font-size: 16px;">VERIFY YOUR EMAIL</span></strong>
-                                  </span>
-                                  </span>
-                                </a>
-                                <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px 60px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #000000; line-height: 160%; text-align: center; word-wrap: break-word;">
-                                <p style="line-height: 160%; font-size: 14px;"><span style="font-size: 18px; line-height: 28.8px;">Thanks,</span></p>
-                                <p style="line-height: 160%; font-size: 14px;"><span style="font-size: 18px; line-height: 28.8px;">The Company Team</span></p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:0px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                <tr>
-                                  <td style="padding-right: 0px;padding-left: 0px;" align="center">
-
-                                    <img align="center" border="0" src="https://s3.amazonaws.com/unroll-images-production/projects%2F16252%2F1618366292485-Group+7.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 600px;"
-                                      width="600" />
-
-                                  </td>
-                                </tr>
-                              </table>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
+       
+          <div style="text-align:center;font-size:12px;color:#888;padding-top:30px">
+              <p>Powered by <a href="https://u5968873.ct.sendgrid.net/ls/click?upn=1RwDKMYvPJpzkU9IaMjqcFybdCF7-2FO-2F-2FiaJa-2Bmabbhg-3DjAGw_ZwPpbtRIOObbxh3xTzAMXmL73doYS4FvnKXNXQIQqP7UaZsJz-2FUzpqekE4YUhGrJquLZP9scwikIAeTD7C2GXHEuHVOrs0vgjpc0yAFLzAitwORRrFuSExnwLwiBnAVBbVAk17JN9ebNpOAPFXp13kEpSx2Y06ysiUL4Y0u9HJeMFdkCptRXvn3mSHJKvp4NjfuRcWsbMWUxhn7y4omjaw-3D-3D" style="color:#888" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://u5968873.ct.sendgrid.net/ls/click?upn%3D1RwDKMYvPJpzkU9IaMjqcFybdCF7-2FO-2F-2FiaJa-2Bmabbhg-3DjAGw_ZwPpbtRIOObbxh3xTzAMXmL73doYS4FvnKXNXQIQqP7UaZsJz-2FUzpqekE4YUhGrJquLZP9scwikIAeTD7C2GXHEuHVOrs0vgjpc0yAFLzAitwORRrFuSExnwLwiBnAVBbVAk17JN9ebNpOAPFXp13kEpSx2Y06ysiUL4Y0u9HJeMFdkCptRXvn3mSHJKvp4NjfuRcWsbMWUxhn7y4omjaw-3D-3D&amp;source=gmail&amp;ust=1665162007222000&amp;usg=AOvVaw2dCAOL-7ay-LC-wbzDYvGO">listmonk</a></p>
           </div>
-
-
-          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <!--[if mso]></div><![endif]-->
-  <!--[if IE]></div><![endif]-->
+          <img src="https://ci3.googleusercontent.com/proxy/jpp_alnr9jMuFXi2X20va4iJ-UElluk1h4YSmKk4UpzsaamJAXodXvRL5YrVWGw5XCi2xv4ndso3i5JsyijNB8W_GjfrpNVij6vkvkd1r7oE4IKADZ0C1xv0OIK3VEMKPOuTLft6f5AB8MpqXHNoMYIIuZM3Rovwfm-lzPE2NjNj5A=s0-d-e1-ft#http://194.195.119.12/campaign/5d13081f-ba33-4db5-a710-deab7cb991ff/00000000-0000-0000-0000-000000000000/px.png" alt="" class="CToWUd" data-bit="iit">
+        </div>
+      <img src="https://ci5.googleusercontent.com/proxy/XyrqhqaxFPNmqbOe-0ZIzj_zsW_R3jKdizILRcfDRy8BLep2z9lwyhEECmtb457YXeKNjK8UlDS863uG3rsYjSBv9mzB2p2EoNT_J6dNh6k_pK-gYcZ1tB06pCElOhJ3nwXw1UZ7J4tKNymzVMk3MOQmqtDzUBv5R2THUu_uALIP5mSuR2ee-i_hQaXifKjam1lg1t6xK_RlN8QALS6w6W7Pd20kTi1hcrUKniQuEpF8Q2xdmCH6mv0DVPHh-2lyVDjAxZdKedy7iJn7R27MyiZFxfkvJMiHhdcOKyHWfv1OvVG3LjmoVBtkSwzoxFqqqPWlDJsxMCseSOO57jyIBxdpVrmUDnhzfGu8thGO_ukRbq83hsp8h9qt40VJBxhwv6CQRT2gxHxA_sHWtg=s0-d-e1-ft#https://u5968873.ct.sendgrid.net/wf/open?upn=LE-2FKmD79S7FUo1s7c-2B-2FclpE8xXJbORcYOJMIeS7QCoyxSY1C86CkHprNPWHNuyqXYhHpqYbHv1QBpody4-2BYycyzYnG8UAGT5aE-2Fjnf-2BupjWh1BtWfViOdLQCDnbsRUs016dOwCwKu8IzGIh7apkYuSqJ1gMiMcbGPnVdKS1PasiVbVXXTLQUI6rGE6Sv99gFu-2FMKa-2FcKjHXl8icDTQjJFQ-3D-3D" alt="" width="1" height="1" border="0" style="height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important" class="CToWUd" data-bit="iit"></div>
 </body>
 
 </html>
-
-
-
-
 """
 
 part1 = MIMEText(text, "plain")
@@ -373,23 +87,27 @@ message.attach(part1)
 message.attach(part2)
 
 
-context = ssl.create_default_context()
-with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+context = ssl.create_default_context(cafile=certifi.where())
+with smtplib.SMTP("smtp.gmail.com", 587) as server:
+    server.ehlo() 
+    server.starttls(context=context)
+    server.ehlo() 
     server.login(sender_email, password)
     with open("list.csv") as file:
         reader = csv.reader(file)
         with open("error.csv",'w') as error_file:
             for email in reader:
                 print(f"Sending email to {email[0]}")
-                try:
-                    server.sendmail(
+                # try:
+                #message["To"] = email[0]
+                server.sendmail(
                         sender_email, email[0], message.as_string()
                     )
-                    print(f"sent email to {email[0]}")
-                    print(f"Waiting 7 seconds for {email[0]}")
-                    time.sleep(7)
-                except:
-                    error_file.write(f"{email[0]} \n")
-                    print(f"FAILED Sending email to {email}")
+                print(f"sent email to {email[0]}")
+                print(f"Waiting 7 seconds for {email[0]}")
+                time.sleep(7)
+                # except :
+                #     error_file.write(f"{email[0]} \n")
+                #     print(f"FAILED Sending email to {email}")
 
 
